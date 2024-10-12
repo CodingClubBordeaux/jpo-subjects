@@ -22,9 +22,6 @@ class Player:
         self.y = y
 
     def update(self):
-        if pyxel.btn(pyxel.KEY_LEFT):
-            self.x = self.x - PLAYER_SPEED
-
         # TODO: Réparer le déplacement du joueur
         #
         # Touches de déplacement:
@@ -35,8 +32,8 @@ class Player:
         # ÉTAPE 2: Empêcher le joueur de se déplacer hors de la fenêtre
         #
         # Fonctions utiles:
-        # - max(valeur, limite) => empêche la valeur de dépasser la limite
-        # - min(valeur, limite) => empêche la valeur de passer la limite
+        # - max(valeur1, valeur2) => renvoie la valeur la plus grande des deux
+        # - min(valeur1, valeur2) => renvoie la valeur la plus petite des deux
         #
         # Constantes:
         # - PLAYER_SPEED: nombre de pixels par lequel déplacer le joueur
@@ -51,8 +48,8 @@ class Player:
         #
         # La coordonnée (0,0) est le coin en haut à gauche de la fenêtre.
 
-        if pyxel.btn(...):
-            ...
+        if pyxel.btn(pyxel.KEY_LEFT):
+            self.x = self.x - PLAYER_SPEED
 
     def draw(self):
         pyxel.blt(self.x, self.y, 0, 0, 0, PLAYER_WIDTH, PLAYER_HEIGHT)
@@ -120,7 +117,7 @@ class Game:
         # Il faut ajouter le projectile à la liste des projectiles avec
         # self.bullets.append(...)
 
-        if pyxel.btnp(...):
+        if pyxel.btnp(pyxel.KEY_SPACE):
             ...
 
         for enemy in self.enemies:
